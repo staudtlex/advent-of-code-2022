@@ -8,10 +8,6 @@
 (in-package :aoc-day-1)
 
 ;;; --- Part 1 ---
-;;; load and prepare data
-(require 'asdf)
-(setq data (split (uiop:read-file-lines "input.txt")))
-
 ;;; helper function for splitting input data at ""
 (defun split (data)
   ;; NOTE: There may very well be built-in/more efficient ways to split a list
@@ -38,13 +34,21 @@
   ;; Apply SPLIT-1 to `data'
   (split-1 data nil))
 
+
+;;; load and prepare data
+(require 'asdf)
+(setq data (split (uiop:read-file-lines "input.txt")))
+
+
 ;;; prepare data
 (setq snack-data (mapcar #'(lambda (d) (mapcar #'parse-integer d)) data))
+
 
 ;;; Find the Elf carrying the most Calories.
 ;;; How many total Calories is that Elf carrying?
 (setq calories (mapcar #'(lambda (elf) (reduce #'+ elf)) snack-data))
 (apply #'max calories)
+
 
 ;;; --- Part 2 ---
 ;;; Find the top three Elves carrying the most Calories.
