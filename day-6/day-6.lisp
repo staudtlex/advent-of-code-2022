@@ -2,16 +2,22 @@
 ;;;; Advent of Code 2022
 ;;;;
 ;;;; --- Day 6: Tuning Trouble ---
+(defpackage :aoc-day-6
+  (:use :common-lisp))
+
+(in-package :aoc-day-6)
 
 ;;; --- Part 1 ---
 ;;; load and prepare data
 (require 'asdf)
 (setq data (uiop:read-file-line "input.txt"))
 
+
 ;;; How many characters need to be processed before the first start-of-packet
 ;;; marker is detected?
 (defun uniquep (s)
   (equal (length (remove-duplicates s :test #'equal)) (length s)))
+
 
 (defun chars-until-marker-complete (char-list marker-length start)
   (let* ((end (+ start marker-length))
@@ -21,6 +27,7 @@
         (chars-until-marker-complete char-list
                                      marker-length
                                      (1+ start)))))
+
 
 (chars-until-marker-complete data 4 0)
 

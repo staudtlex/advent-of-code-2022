@@ -2,6 +2,10 @@
 ;;;; Advent of Code 2022
 ;;;;
 ;;;; --- Day 3: Rucksack Reorganization ---
+(defpackage :aoc-day-3
+  (:use :common-lisp))
+
+(in-package :aoc-day-3)
 
 ;;; load and prepare data
 (require 'asdf)
@@ -33,13 +37,14 @@
 
 ;;; helper function to create groups
 (defun get-three (d)
-  (defun get-three-0 (x)
-    (let ((init (list (append (car x) (list (subseq (cadr x) 0 3)))
-                      (subseq (cadr x) 3))))
-      (if (not (nth 1 init))
-          init
-          (get-three-0 init))))
-  (car (get-three-0 (list nil d))))
+  (labels ((get-three-0 (x)
+             (let ((init (list (append (car x) (list (subseq (cadr x) 0 3)))
+                               (subseq (cadr x) 3))))
+               (if (not (nth 1 init))
+                   init
+                   (get-three-0 init)))))
+    (car (get-three-0 (list nil d)))))
+
 
 (let* ((data (get-three rucksack-data))
        (item-priorities (mapcar #'(lambda (rucksack-group)

@@ -2,6 +2,10 @@
 ;;;; Advent of Code 2022
 ;;;;
 ;;;; --- Day 1: Calorie Counting ---
+(defpackage :aoc-day-1
+  (:use :common-lisp))
+
+(in-package :aoc-day-1)
 
 ;;; --- Part 1 ---
 ;;; load and prepare data

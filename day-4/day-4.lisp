@@ -2,7 +2,10 @@
 ;;;; Advent of Code 2022
 ;;;;
 ;;;; --- Day 4: Camp Cleanup ---
+(defpackage :aoc-day-4
+  (:use :common-lisp))
 
+(in-package :aoc-day-4)
 
 ;;; --- Part 1 ---
 ;;; load and prepare data

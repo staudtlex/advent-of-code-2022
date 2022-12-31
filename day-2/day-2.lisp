@@ -2,6 +2,10 @@
 ;;;; Advent of Code 2022
 ;;;;
 ;;;; --- Day 2: Rock Paper Scissors ---
+(defpackage :aoc-day-2
+  (:use :common-lisp))
+
+(in-package :aoc-day-2)
 
 ;;; --- Part 1 ---
 ;;; What would your total score be if everything goes exactly according to your

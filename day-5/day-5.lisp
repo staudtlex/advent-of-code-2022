@@ -2,7 +2,13 @@
 ;;;; Advent of Code 2022
 ;;;;
 ;;;; --- Day 5: Supply Stacks ---
+(defpackage :aoc-day-5
+  (:use :common-lisp))
 
+(in-package :aoc-day-5)
+
+;;; --- Part 1 ---
+;;; load and prepare data
 (require 'asdf)
 (setf input-data (let* ((input-data (uiop:read-file-lines "input.txt"))
                         (pos (position "" input-data :test #'equal)))
@@ -10,7 +16,6 @@
                            (list (subseq input-data (1+ pos)))))) ; rearrangement procedures
 
 
-;;; --- Part 1 ---
 (setf stacks
       (let ((columns '(2 6 10 14 18 22 26 30 34)))
         (mapcar #'(lambda (column)
