@@ -10,7 +10,7 @@
 ;;; --- Part 1 ---
 ;;; load and prepare data
 (require 'asdf)
-(setq data (mapcar #'(lambda (line)
+(setf data (mapcar #'(lambda (line)
                        (list (subseq line 0 1)
                              (parse-integer (subseq line 2))))
                    (uiop:read-file-lines "input.txt")))

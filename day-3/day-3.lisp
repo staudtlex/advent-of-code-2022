@@ -9,7 +9,7 @@
 
 ;;; load and prepare data
 (require 'asdf)
-(setq rucksack-data (uiop:read-file-lines "input.txt"))
+(setf rucksack-data (uiop:read-file-lines "input.txt"))
 
 ;;; --- Part 1 ---
 ;;; Find the item type that appears in both compartments of each rucksack.

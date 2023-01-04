@@ -11,7 +11,7 @@
 ;;; What would your total score be if everything goes exactly according to your
 ;;; strategy guide?
 (require 'asdf)
-(setq strategy-guide (mapcar #'(lambda (e)
+(setf strategy-guide (mapcar #'(lambda (e)
                                  (list (subseq e 0 1) (subseq e 2 3)))
                              (uiop:read-file-lines "input.txt")))
 
@@ -75,7 +75,7 @@
 ;;; https://twitter.com/antoine_fabri/status/1598686126079938561
 
 ;;; Read data and transform letters into numbers
-(setq strategy-guide-2
+(setf strategy-guide-2
       (let ((letters-int-table (pairlis '("A" "B" "C" "X" "Y" "Z")
                                         '(1 2 3 1 2 3))))
         (mapcar #'(lambda (e)

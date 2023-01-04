@@ -37,16 +37,16 @@
 
 ;;; load and prepare data
 (require 'asdf)
-(setq data (split (uiop:read-file-lines "input.txt")))
+(setf data (split (uiop:read-file-lines "input.txt")))
 
 
 ;;; prepare data
-(setq snack-data (mapcar #'(lambda (d) (mapcar #'parse-integer d)) data))
+(setf snack-data (mapcar #'(lambda (d) (mapcar #'parse-integer d)) data))
 
 
 ;;; Find the Elf carrying the most Calories.
 ;;; How many total Calories is that Elf carrying?
-(setq calories (mapcar #'(lambda (elf) (reduce #'+ elf)) snack-data))
+(setf calories (mapcar #'(lambda (elf) (reduce #'+ elf)) snack-data))
 (apply #'max calories)
 
 

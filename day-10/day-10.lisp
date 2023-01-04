@@ -10,7 +10,7 @@
 ;;; --- Part 1 ---
 ;;; load and prepare data
 (require 'asdf)
-(setq data (mapcar #'(lambda (line)
+(setf data (mapcar #'(lambda (line)
                        (let ((line-data (uiop:split-string line)))
                          (if (cadr line-data)
                              (list (car line-data)
